@@ -188,7 +188,7 @@ def _():
 
 @app.cell
 def _(total):
-    print(total)
+    print(f'total is {total}.')
     return
 
 

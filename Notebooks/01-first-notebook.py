@@ -212,6 +212,7 @@ def _(mo):
 
 @app.cell
 def _():
+    # I changed the 16.75 to 999.99 and it changed: freight_charges became 999.99, len stayed 5 and sum became 1103.74. Then I changed it back to 16.75.
     return
 
 
@@ -227,6 +228,12 @@ def _(mo):
     return
 
 
+@app.cell
+def _():
+    # I deleted it and the rest became an error. 
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -239,6 +246,12 @@ def _(mo):
     return
 
 
+@app.cell
+def _():
+    # Did it and deleted it. 
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -247,6 +260,12 @@ def _(mo):
     Drag the cell holding `total = sum(freight_charges)` **below** the cell that shows
     `total`.
     """)
+    return
+
+
+@app.cell
+def _():
+    # It stayed the same.
     return
 
 
@@ -306,6 +325,73 @@ def _(mo):
     return
 
 
+@app.cell
+def _(freight_charges):
+    freight_charges[-1]
+    return
+
+
+@app.cell
+def _(freight_charges):
+    freight_charges[:3]
+    return
+
+
+@app.cell
+def _(orders):
+    orders[0]
+    return
+
+
+@app.cell
+def _(freight_charges):
+    freight_charges[0]
+    return
+
+
+@app.cell
+def _():
+    category = "Confections"
+
+    return (category,)
+
+
+@app.cell
+def _(category):
+    len(category)
+    return
+
+
+@app.cell
+def _(orders):
+    sum(orders)
+    return
+
+
+@app.cell
+def _(orders):
+    orders * 2
+    return
+
+
+@app.cell
+def _(freight_charges, orders):
+    orders + freight_charges
+    return
+
+
+@app.cell
+def _(freight_charges):
+    sorted(freight_charges)
+    return
+
+
+@app.cell
+def _(freight_charges):
+    sorted(freight_charges, reverse=True)
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -345,6 +431,18 @@ def _(mo):
     return
 
 
+@app.cell
+def _():
+    "16.75" + "22.25"
+    return
+
+
+@app.cell
+def _():
+    16.75 + "22.25"
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -376,6 +474,24 @@ def _(mo):
 
     📖 Handbook: Python §3 Expressions and operators
     """)
+    return
+
+
+@app.cell
+def _(freight_charges):
+    freight_charges[0] > 20
+    return
+
+
+@app.cell
+def _(freight_charges):
+    freight_charges[-1] == max(freight_charges)
+    return
+
+
+@app.cell
+def _(freight_charges):
+    type(freight_charges[0] > 20)
     return
 
 
@@ -414,6 +530,12 @@ def _(mo):
 
     Your sentence should show `$120.50` and `$24.10`.
     """)
+    return
+
+
+@app.cell
+def _(freight_charges):
+    print(f"Total freight is ${sum(freight_charges):.2f} and the average charge is ${sum(freight_charges) / len(freight_charges):.2f}.")
     return
 
 
@@ -467,6 +589,29 @@ def _(mo):
     return
 
 
+@app.cell
+def _(freight_charges):
+    under_25 = []
+    for low in freight_charges:
+        if low <= 25:
+            under_25.append(low)
+    under_25
+    return (under_25,)
+
+
+@app.cell
+def _(under_25):
+    print(f"{len(under_25)} charges are below 25 and they add up to ${sum(under_25):.2f}.")
+
+    return
+
+
+@app.cell
+def _():
+    # With <=, order 10250 joined the list. Its freight is 25.0, which is not < 25 but is <= 25.
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -482,6 +627,12 @@ def _(mo):
 
     📖 Handbook: Python §10 Reading a traceback
     """)
+    return
+
+
+@app.cell
+def _():
+    # did it an deleted it. 
     return
 
 
@@ -501,6 +652,30 @@ def _(mo):
     If marimo offers to install `pandsa`, do not. No package has that name, so the install fails.
 
     📖 Handbook: Python §9 Modules and `import`, §10 Reading a traceback
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    ModuleNotFoundError: Python looked for a package called pandsa and it does not exist. I misspelled pandas.
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    FileNotFoundError: Python tried to open a file called sales.csv, but that file is not in my project.
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    SyntaxError: I opened the list with [ but never closed it with ], so Python cannot read the line.|
     """)
     return
 
@@ -528,6 +703,12 @@ def _(mo):
 
     📖 Handbook: Python §2 Types
     """)
+    return
+
+
+@app.cell
+def _():
+    max(["9.50", "16.75", "22.25"])
     return
 
 
@@ -559,6 +740,16 @@ def _(mo):
     1. Which line does Python name?
     2. Which line would you change, and why is it a different line from the one Python named?
     3. What would you change it to? More than one answer is defensible, so state the rule you chose.
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    1. Python names line 3: total = sum(freight_charges).
+    2. I would change line 1, because that is where the text "pending" enters the list. Python only fails on line 3 when sum reaches it.
+    3. I would remove "pending" so the list holds only numbers. Rule: prices must be numbers; a pending charge stays out until it is known.
     """)
     return
 

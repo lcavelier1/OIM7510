@@ -8,7 +8,14 @@
     {
       "id": "Hbol",
       "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -51,7 +58,7 @@
       "console": []
     },
     {
-      "id": "lEQa",
+      "id": "NiIQ",
       "code_hash": "bb74efdbc983ea90b6751814ad1974a4",
       "outputs": [
         {
@@ -248,8 +255,15 @@
     },
     {
       "id": "WdWR",
-      "code_hash": null,
-      "outputs": [],
+      "code_hash": "12fa0f43511eb4a58275ed4c4680c946",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -266,6 +280,12 @@
       "console": []
     },
     {
+      "id": "dYNI",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
       "id": "RGSE",
       "code_hash": "1c7f5d35f40512380e4e63a7d3602152",
       "outputs": [
@@ -279,6 +299,12 @@
       "console": []
     },
     {
+      "id": "hecw",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
       "id": "Kclp",
       "code_hash": "c560a73c50a639b3232304257ed0738d",
       "outputs": [
@@ -286,6 +312,19 @@
           "type": "data",
           "data": {
             "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h2 id=\"experiment-4\">Experiment 4</h2>\n<span class=\"paragraph\">Drag the cell holding <code>total = sum(freight_charges)</code> <strong>below</strong> the cell that shows\n<code>total</code>.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "AoCK",
+      "code_hash": "82f6c21b7b8a1904e04d2d60385ef161",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
           }
         }
       ],
@@ -344,6 +383,149 @@
       "console": []
     },
     {
+      "id": "ZhBe",
+      "code_hash": "c0a7a809473e29effbb39c4685dd71f9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>36.25</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lpYO",
+      "code_hash": "20bab0561e08ed42ac58e6591d9ef83f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"text/plain+float:16.75\", \"text/plain+float:22.25\", \"text/plain+float:25.0\"]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bplw",
+      "code_hash": "05ebc636a6e146738183f16d21239d8c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>10248</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "zpkK",
+      "code_hash": "abd5a46c9b2d6515004aada631c3ff55",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>16.75</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "KJOL",
+      "code_hash": "139386743b1df296f8693bbc1710242b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "WtNr",
+      "code_hash": "b8cc9727d967b269366944c811a3f344",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>11</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "WwYj",
+      "code_hash": "3185adb3fd9ee53e74b5778d920b025e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>51250</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "ypOW",
+      "code_hash": "fed7e1cc5d674b373c287f10d525a895",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[10248, 10249, 10250, 10251, 10252, 10248, 10249, 10250, 10251, 10252]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "vLHh",
+      "code_hash": "954c6a48329eec4c1e36f2a6e3b81139",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[10248, 10249, 10250, 10251, 10252, \"text/plain+float:16.75\", \"text/plain+float:22.25\", \"text/plain+float:25.0\", \"text/plain+float:20.25\", \"text/plain+float:36.25\"]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "tNhS",
+      "code_hash": "c868ee09c8177da4fbaedcb30ed7efbe",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"text/plain+float:16.75\", \"text/plain+float:20.25\", \"text/plain+float:22.25\", \"text/plain+float:25.0\", \"text/plain+float:36.25\"]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "RIGp",
+      "code_hash": "ae7555daaeaad700a408a44157317898",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"text/plain+float:36.25\", \"text/plain+float:25.0\", \"text/plain+float:22.25\", \"text/plain+float:20.25\", \"text/plain+float:16.75\"]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
       "id": "ZHCJ",
       "code_hash": "6d0b81807515509cd78ab5d6bcdf23b9",
       "outputs": [
@@ -359,7 +541,14 @@
     {
       "id": "ROlb",
       "code_hash": "e4fe7720112bf52771a7c6e23b6680c8",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"text/plain:<class 'float'>\", \"text/plain:<class 'int'>\", \"text/plain:<class 'str'>\", \"text/plain:<class 'bool'>\"]"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -389,6 +578,39 @@
       "console": []
     },
     {
+      "id": "zPpN",
+      "code_hash": "b0edec4e15698beb44aca5790c83e9d8",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>&#x27;16.7522.25&#x27;</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PobV",
+      "code_hash": "670df440749065272ea17293d93060d6",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "unsupported operand type(s) for +: 'float' and 'str'",
+          "traceback": null
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">\"/var/folders/m1/332w5r057y95rz6qr4zn5s3c0000gn/T/marimo_57693/__marimo__cell_PobV_.py\"</span>, line <span class=\"m\">1</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"mf\">16.75</span> <span class=\"o\">+</span> <span class=\"s2\">\"22.25\"</span>\n<span class=\"w\">    </span><span class=\"pm\">~~~~~~^~~~~~~~~</span>\n<span class=\"gr\">TypeError</span>: <span class=\"n\">unsupported operand type(s) for +: 'float' and 'str'</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
+    },
+    {
       "id": "Vxnm",
       "code_hash": "61c872df0f30ee9fc863188843e1827f",
       "outputs": [
@@ -415,6 +637,45 @@
       "console": []
     },
     {
+      "id": "zAaz",
+      "code_hash": "1061f64eea1fdc45d218324185d4bc0d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>False</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "QOOV",
+      "code_hash": "fa74ccaf14ae4d37593fa3e3a8b32203",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>True</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "bYDB",
+      "code_hash": "8c827640c13f9bce9fc2a9af3489c083",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>&lt;class &#x27;bool&#x27;&gt;</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
       "id": "ulZA",
       "code_hash": "c769b53cfa5c0d31eb4774ccc90cead4",
       "outputs": [
@@ -430,8 +691,22 @@
     {
       "id": "ecfG",
       "code_hash": "ab81ca09e82b5615c45e533a8eb8a2d5",
-      "outputs": [],
-      "console": []
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Order 10248 paid $16.75 in freight.\n",
+          "mimetype": "text/plain"
+        }
+      ]
     },
     {
       "id": "Pvdt",
@@ -460,6 +735,26 @@
       "console": []
     },
     {
+      "id": "GcOx",
+      "code_hash": "976a7c6e4323f6f2c98efa6f39099171",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Total freight is $120.50 and the average charge is $24.10.\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
       "id": "aLJB",
       "code_hash": "820c55de11633da2a9d03c20e93517b6",
       "outputs": [
@@ -475,7 +770,14 @@
     {
       "id": "nHfw",
       "code_hash": "99d2afc68739f124c36b434e4f86adcf",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"text/plain+float:22.25\", \"text/plain+float:25.0\", \"text/plain+float:20.25\", \"text/plain+float:36.25\"]"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -505,6 +807,52 @@
       "console": []
     },
     {
+      "id": "dasu",
+      "code_hash": "fdf8be4238175376a1118cbde920cb77",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"text/plain+float:16.75\", \"text/plain+float:22.25\", \"text/plain+float:25.0\", \"text/plain+float:20.25\"]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "BcEu",
+      "code_hash": "6bb479f43548efeba002a2274d79cf14",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "4 charges are below 25 and they add up to $84.25.\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "tYCa",
+      "code_hash": "f03611f87a84abe378a6d4db590b46a3",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": []
+    },
+    {
       "id": "pHFh",
       "code_hash": "3c0f55b2f8582e207416da282626db3d",
       "outputs": [
@@ -518,6 +866,12 @@
       "console": []
     },
     {
+      "id": "qbYR",
+      "code_hash": null,
+      "outputs": [],
+      "console": []
+    },
+    {
       "id": "NCOB",
       "code_hash": "ceef6bdc4617e1512188a28309983104",
       "outputs": [
@@ -525,6 +879,45 @@
           "type": "data",
           "data": {
             "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"break-it-three-ways\">\u270f\ufe0f Break It Three Ways</h1>\n<span class=\"paragraph\">Each line below fails. Put each one in a cell of your own and run it. Under each, add a markdown cell that explains the last line of the error in your own words.</span>\n<ol>\n<li><code>import pandsa</code>, a package name with a typo</li>\n<li><code>open(\"sales.csv\")</code>, a file that is not in your project</li>\n<li><code>new_charges = [16.75, 22.25</code>, with the closing bracket missing</li>\n</ol>\n<span class=\"paragraph\">You should meet three different kinds of error. Keep your markdown cells, and delete the broken cells so the notebook runs clean.</span>\n<span class=\"paragraph\">If marimo offers to install <code>pandsa</code>, do not. No package has that name, so the install fails.</span>\n<span class=\"paragraph\">\ud83d\udcd6 Handbook: Python \u00a79 Modules and <code>import</code>, \u00a710 Reading a traceback</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "dgtc",
+      "code_hash": "57ca26637969e8ec29294b5343064131",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">ModuleNotFoundError: Python looked for a package called pandsa and it does not exist. I misspelled pandas.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "sLIq",
+      "code_hash": "14993ec5fb6353332446fcda2c128dce",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">FileNotFoundError: Python tried to open a file called sales.csv, but that file is not in my project.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "AbaJ",
+      "code_hash": "1db3b9ac0444749b6b9709645f5cfe81",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">SyntaxError: I opened the list with [ but never closed it with ], so Python cannot read the line.|</span></span>"
           }
         }
       ],
@@ -557,6 +950,19 @@
       "console": []
     },
     {
+      "id": "uBSn",
+      "code_hash": "3ecb5a15eac460ce6adc166848ad8c47",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>&#x27;9.50&#x27;</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
       "id": "TXez",
       "code_hash": "9604a4334a5c681e4d051bb1c7468616",
       "outputs": [
@@ -564,6 +970,19 @@
           "type": "data",
           "data": {
             "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h1 id=\"read-this-one-on-paper\">\u270f\ufe0f Read This One on Paper</h1>\n<span class=\"paragraph\"><strong>By hand, with no agent.</strong> When code an agent wrote is the thing that broke, reading the error yourself is how you find out why.</span>\n<span class=\"paragraph\">A file called <code>hello.py</code>, with its line numbers:</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>1  freight_charges = [16.75, 22.25, \"pending\", 9.50]\n2\n3  total = sum(freight_charges)\n4  print(total)\n</code></pre></div>\n<span class=\"paragraph\">Running it prints:</span>\n<div class=\"language-text codehilite\"><pre><span></span><code>Traceback (most recent call last):\n  File \"/Users/you/oim7510/hello.py\", line 3, in &lt;module&gt;\n    total = sum(freight_charges)\nTypeError: unsupported operand type(s) for +: 'float' and 'str'\n</code></pre></div>\n<ol>\n<li>Which line does Python name?</li>\n<li>Which line would you change, and why is it a different line from the one Python named?</li>\n<li>What would you change it to? More than one answer is defensible, so state the rule you chose.</li>\n</ol></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "OswJ",
+      "code_hash": "1850c757a4a0dd4f00bdb6b2194b2d4f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><ol>\n<li>Python names line 3: total = sum(freight_charges).</li>\n<li>I would change line 1, because that is where the text \"pending\" enters the list. Python only fails on line 3 when sum reaches it.</li>\n<li>I would remove \"pending\" so the list holds only numbers. Rule: prices must be numbers; a pending charge stays out until it is known.</li>\n</ol></span>"
           }
         }
       ],

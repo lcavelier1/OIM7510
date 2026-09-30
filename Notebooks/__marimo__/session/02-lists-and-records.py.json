@@ -8,7 +8,14 @@
     {
       "id": "Hbol",
       "code_hash": "1d0db38904205bec4d6f6f6a1f6cec3e",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -39,9 +46,23 @@
     },
     {
       "id": "bkHC",
-      "code_hash": "115cdc766461e63d887742e99ed47a5d",
-      "outputs": [],
-      "console": []
+      "code_hash": "30c47d7e2274c90747dd0f4153dbf696",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "19.99\n5.5\n$19.99 67.49 [42.0, 19.99, 5.5]\n",
+          "mimetype": "text/plain"
+        }
+      ]
     },
     {
       "id": "lEQa",
@@ -72,7 +93,73 @@
     {
       "id": "Xref",
       "code_hash": "3162e71c11ea9d96662b50a13fe21705",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"text/plain+float:16.75\", \"text/plain+float:22.25\", \"text/plain+float:25.0\", \"text/plain+float:20.25\", \"text/plain+float:36.25\"]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "rFIu",
+      "code_hash": "41b677e5a767bdc6d8289670f64a4304",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>16.75</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "jfQr",
+      "code_hash": "efc656077a3e2ebeaa7723ca4ff21678",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>36.25</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Lnaf",
+      "code_hash": "c33d04356fed101f03103b3a587b36ee",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "list index out of range",
+          "traceback": null
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">\"/var/folders/m1/332w5r057y95rz6qr4zn5s3c0000gn/T/marimo_38751/__marimo__cell_Lnaf_.py\"</span>, line <span class=\"m\">1</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"n\">charges</span><span class=\"p\">[</span><span class=\"mi\">5</span><span class=\"p\">]</span>\n<span class=\"w\">    </span><span class=\"pm\">~~~~~~~^^^</span>\n<span class=\"gr\">IndexError</span>: <span class=\"n\">list index out of range</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
+    },
+    {
+      "id": "jhha",
+      "code_hash": "c69aabcc95556e47720f514ac485e34c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>59.25</pre>"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -90,12 +177,12 @@
     },
     {
       "id": "BYtC",
-      "code_hash": "19fcbdf4ffd48826b1d19dcc06b0483d",
+      "code_hash": "ad9cd9763de05fd9275c81765b3eddfe",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"your-written-answers\">Your written answers</h3>\n<span class=\"paragraph\">Four of the drills below ask for a sentence. This cell is where they go. Click into\nit, write under the letter, and press <code>Ctrl+Enter</code>. Code still goes in cells of your\nown, added with the <strong>+</strong> button.</span>\n<span class=\"paragraph\"><strong>A \u00b7</strong></span>\n<span class=\"paragraph\"><strong>C \u00b7</strong></span>\n<span class=\"paragraph\"><strong>D \u00b7</strong></span>\n<span class=\"paragraph\"><strong>E \u00b7</strong></span></span>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><h3 id=\"your-written-answers\">Your written answers</h3>\n<span class=\"paragraph\">Four of the drills below ask for a sentence. This cell is where they go. Click into\nit, write under the letter, and press <code>Ctrl+Enter</code>. Code still goes in cells of your\nown, added with the <strong>+</strong> button.</span>\n<span class=\"paragraph\"><strong>A \u00b7</strong> The first test that is true decides, because Python checks from top to bottom and stops at the first match.</span>\n<span class=\"paragraph\"><strong>C \u00b7</strong> append always adds exactly one item, even if that item is a whole list; extend adds each item separately.</span>\n<span class=\"paragraph\"><strong>D \u00b7</strong> sort() changes the list itself and returns nothing (None), while sorted() returns a new sorted list.</span>\n<span class=\"paragraph\"><strong>E \u00b7</strong> When I want a change made through one name to show up in the other too, like a shared list that several parts of my code need to update together.</span></span>"
           }
         }
       ],
@@ -116,9 +203,23 @@
     },
     {
       "id": "Kclp",
-      "code_hash": "dc0cf7ab380db59842116577d44768e7",
-      "outputs": [],
-      "console": []
+      "code_hash": "02b7c526e06db68f5bd42a94ba3b40a7",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Pass\n",
+          "mimetype": "text/plain"
+        }
+      ]
     },
     {
       "id": "emfo",
@@ -136,8 +237,61 @@
     {
       "id": "Hstk",
       "code_hash": "413f573172b95d2cba69850b5e98a1e1",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"shipped\", \"pending\", \"shipped\", \"cancelled\", \"shipped\"]"
+          }
+        }
+      ],
       "console": []
+    },
+    {
+      "id": "BpFc",
+      "code_hash": "49dfc215ddd92a0a2db1aada2a81210b",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>3</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "PQMD",
+      "code_hash": "d304d01b464eeae66a190746c5ac5738",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>2</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "GLMn",
+      "code_hash": "2413ca099b3c3bab48dd89d69b2ac326",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "60.0\n",
+          "mimetype": "text/plain"
+        }
+      ]
     },
     {
       "id": "nWHF",
@@ -154,9 +308,36 @@
     },
     {
       "id": "iLit",
-      "code_hash": "d7f1e30a273b00c372f58d2c77801a99",
-      "outputs": [],
+      "code_hash": "c85449df5aaeecfdcb957912380535a2",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>4</pre>"
+          }
+        }
+      ],
       "console": []
+    },
+    {
+      "id": "qgUQ",
+      "code_hash": "df5105d40840dd62c65e0c02d1e9abd9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "stapler\n",
+          "mimetype": "text/plain"
+        }
+      ]
     },
     {
       "id": "ZHCJ",
@@ -174,8 +355,42 @@
     {
       "id": "ROlb",
       "code_hash": "01a8d5269858a498482cb962fade9d87",
-      "outputs": [],
-      "console": []
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"AAPL\", \"MSFT\", \"NVDA\"]"
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "['AAPL', 'MSFT', 'NVDA']\nNone\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "JTgl",
+      "code_hash": "a24cd81dec103216b544347b72a727b8",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "['NVDA', 'MSFT', 'AAPL']\n",
+          "mimetype": "text/plain"
+        }
+      ]
     },
     {
       "id": "qnkX",
@@ -192,8 +407,48 @@
     },
     {
       "id": "TqIu",
-      "code_hash": "8d95c8f244caaf7e1606caf938476e98",
-      "outputs": [],
+      "code_hash": "fef8050147ab6b97e03e371500ce2207",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"text/plain+float:12.5\", \"text/plain+float:8.0\", \"text/plain+float:19.99\"]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "tEte",
+      "code_hash": "c8ba5cd81bfd4f76e9001b7d29de9ada",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "False\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "BWQd",
+      "code_hash": "e32feb2a13d6a03e565d9193113c449c",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[\"text/plain+float:11.25\", \"text/plain+float:7.2\", \"text/plain+float:17.99\", \"text/plain+float:4.49\"]"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -212,7 +467,87 @@
     {
       "id": "DnEU",
       "code_hash": "e22c9fe5df8633ecd9c695b5510cb87f",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "10050\n150\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "yCMf",
+      "code_hash": "fc31f71e22d4456ae88940dc488c1626",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">\"100\" + \"50\" joined the two texts side by side into \"10050\", which makes sense for text because + on text means gluing words together, like \"Laura\" + \"C\" gives \"LauraC\".</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "dPRv",
+      "code_hash": "ca9b34ba04cb0c82764164612079017e",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "150\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "mVCh",
+      "code_hash": "428866640000dc925c086c6f264cb8b5",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "invalid literal for int() with base 10: '100.5'",
+          "traceback": null
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">\"/var/folders/m1/332w5r057y95rz6qr4zn5s3c0000gn/T/marimo_38751/__marimo__cell_mVCh_.py\"</span>, line <span class=\"m\">1</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"nb\">int</span><span class=\"p\">(</span><span class=\"s2\">\"100.5\"</span><span class=\"p\">)</span>\n<span class=\"w\">    </span><span class=\"pm\">~~~^^^^^^^^^</span>\n<span class=\"gr\">ValueError</span>: <span class=\"n\">invalid literal for int() with base 10: '100.5'</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
+    },
+    {
+      "id": "uJSZ",
+      "code_hash": "214b029b8c946cea7bf3dd66ac5798cb",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>100.5</pre>"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -244,7 +579,14 @@
     {
       "id": "Pvdt",
       "code_hash": "53f7fdf6f5abd48e8964538bd017999e",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "{\"OrderID\": 10248, \"CustomerID\": \"VINET\", \"ShipCountry\": \"France\", \"ShipCity\": \"Reims\", \"OrderDate\": \"2016-07-04\", \"ShippedDate\": \"2016-07-16\", \"Freight\": \"text/plain+float:16.75\"}"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -263,8 +605,68 @@
     {
       "id": "aLJB",
       "code_hash": "332446c7b3958fd46ca5386ebac32217",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>&#x27;France&#x27;</pre>"
+          }
+        }
+      ],
       "console": []
+    },
+    {
+      "id": "nKpS",
+      "code_hash": "2bfc2c56d92d1252dcea892b8285d87a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>16.75</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "Ldgf",
+      "code_hash": "2c0ebdac371fde0a720bc52f0ec33995",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "'freight'",
+          "traceback": null
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">\"/var/folders/m1/332w5r057y95rz6qr4zn5s3c0000gn/T/marimo_38751/__marimo__cell_Ldgf_.py\"</span>, line <span class=\"m\">1</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"n\">first_order</span><span class=\"p\">[</span><span class=\"s2\">\"freight\"</span><span class=\"p\">]</span>\n<span class=\"w\">    </span><span class=\"pm\">~~~~~~~~~~~^^^^^^^^^^^</span>\n<span class=\"gr\">KeyError</span>: <span class=\"n\">'freight'</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
+    },
+    {
+      "id": "fLco",
+      "code_hash": "8c9992a7ee25d4caccd1bebf692690ee",
+      "outputs": [
+        {
+          "type": "error",
+          "ename": "exception",
+          "evalue": "0",
+          "traceback": null
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stderr",
+          "text": "<span class=\"codehilite\"><div class=\"highlight\"><pre><span></span><span class=\"gt\">Traceback (most recent call last):</span>\n  File <span class=\"nb\">\"/var/folders/m1/332w5r057y95rz6qr4zn5s3c0000gn/T/marimo_38751/__marimo__cell_fLco_.py\"</span>, line <span class=\"m\">1</span>, in <span class=\"n\">&lt;module&gt;</span>\n<span class=\"w\">    </span><span class=\"n\">first_order</span><span class=\"p\">[</span><span class=\"mi\">0</span><span class=\"p\">]</span>\n<span class=\"w\">    </span><span class=\"pm\">~~~~~~~~~~~^^^</span>\n<span class=\"gr\">KeyError</span>: <span class=\"n\">0</span>\n</pre></div>\n</span>",
+          "mimetype": "application/vnd.marimo+traceback"
+        }
+      ]
     },
     {
       "id": "nHfw",
@@ -295,7 +697,14 @@
     {
       "id": "AjVT",
       "code_hash": "2e78ba09148c2840a0ce57701f538f5b",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>30</pre>"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -314,7 +723,14 @@
     {
       "id": "NCOB",
       "code_hash": "56ae7cf264083e0936598623c21b783a",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>&#x27;France&#x27;</pre>"
+          }
+        }
+      ],
       "console": []
     },
     {
@@ -331,6 +747,52 @@
       "console": []
     },
     {
+      "id": "jFQN",
+      "code_hash": "a299eebd0d04434434fd0a5f5de75c30",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>827.0</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "xCxE",
+      "code_hash": "b4c86992578bfbd6aa68a71a18f81233",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>3</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "pfQT",
+      "code_hash": "5ff8537324042db8bd40360145c326a9",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "10263 56.0\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
       "id": "TRpd",
       "code_hash": "276567fb8e96c73de1480e5e345ad8c1",
       "outputs": [
@@ -345,12 +807,12 @@
     },
     {
       "id": "TXez",
-      "code_hash": "1a951e63750454427afca99d94d5c044",
+      "code_hash": "5197014dadb5daf6b33e810771228657",
       "outputs": [
         {
           "type": "data",
           "data": {
-            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\"><em>One row is ...</em></span>\n<span class=\"paragraph\"><em>(Replace this line with your own sentence. If this cell shows you code instead of\ntext, use the cell menu to turn it into a markdown cell.)</em></span></span>"
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">One row is one order: a single purchase that one customer placed on one date, with where it was sent, when it shipped and what the shipping cost. That gives 30 rows, one per order, which matches len(orders).</span></span>"
           }
         }
       ],
@@ -372,8 +834,114 @@
     {
       "id": "yCnT",
       "code_hash": "ee04f5dc9b3e474ede5f3f883c3aa33e",
-      "outputs": [],
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[{\"Symbol\": \"AAPL\", \"Shares\": 100, \"Price\": \"text/plain+float:173.93\"}, {\"Symbol\": \"MSFT\", \"Shares\": 50, \"Price\": \"text/plain+float:319.53\"}, {\"Symbol\": \"GOOG\", \"Shares\": 80, \"Price\": \"text/plain+float:131.36\"}, {\"Symbol\": \"AMZN\", \"Shares\": 200, \"Price\": \"text/plain+float:129.33\"}, {\"Symbol\": \"NVDA\", \"Shares\": 20, \"Price\": \"text/plain+float:410.17\"}, {\"Symbol\": \"TSLA\", \"Shares\": 150, \"Price\": \"text/plain+float:255.7\"}]"
+          }
+        }
+      ],
       "console": []
+    },
+    {
+      "id": "IcQl",
+      "code_hash": "9b30cab5c57e0da1963635269245035d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Total cost: $116302.70\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "tuns",
+      "code_hash": "a40a8b2aaf311dd9e0a2768c726ac1a4",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/markdown": "<span class=\"markdown prose dark:prose-invert contents\"><span class=\"paragraph\">For each holding, multiply its Shares by its Price to get what that holding costs.\nStart a running total at zero and add each holding's cost to it.\nAfter going through all six holdings, the running total is the cost of the whole portfolio.</span></span>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "blBO",
+      "code_hash": "5764a3e1b9ae741b813bc8087e3cb09f",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "application/json": "[{\"Title\": \"Python Basics\", \"Copies\": 3, \"Price\": \"text/plain+float:24.99\"}, {\"Title\": \"Data Science 101\", \"Copies\": 1, \"Price\": \"text/plain+float:39.5\"}, {\"Title\": \"Clean Code\", \"Copies\": 2, \"Price\": \"text/plain+float:32.0\"}, {\"Title\": \"The Pragmatic Programmer\", \"Copies\": 5, \"Price\": \"text/plain+float:27.75\"}, {\"Title\": \"Deep Learning\", \"Copies\": 1, \"Price\": \"text/plain+float:54.2\"}]"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "cNiI",
+      "code_hash": "be2613c80d3c25f5dd7f76927c8d7d9d",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "Total cost: $371.42\n",
+          "mimetype": "text/plain"
+        }
+      ]
+    },
+    {
+      "id": "rDol",
+      "code_hash": "db75d57654c7c69cd61954babc96b1c7",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>12</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "FObC",
+      "code_hash": "153ae8dca017f7101dceca0c7d776f40",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/plain": ""
+          }
+        }
+      ],
+      "console": [
+        {
+          "type": "stream",
+          "name": "stdout",
+          "text": "The Pragmatic Programmer 138.75\n",
+          "mimetype": "text/plain"
+        }
+      ]
     },
     {
       "id": "wlCL",
@@ -391,6 +959,19 @@
     {
       "id": "kqZH",
       "code_hash": "75416f5df6cb12c24498123c5e0d1d9a",
+      "outputs": [
+        {
+          "type": "data",
+          "data": {
+            "text/html": "<pre class='text-xs'>&#x27;wrote data/portfolio.csv&#x27;</pre>"
+          }
+        }
+      ],
+      "console": []
+    },
+    {
+      "id": "lKAp",
+      "code_hash": null,
       "outputs": [],
       "console": []
     },

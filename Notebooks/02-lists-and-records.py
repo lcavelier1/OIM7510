@@ -81,16 +81,29 @@ def _():
     # Your own example of each name.
 
     # 1. value:
+    19.99
     # 2. name and assignment:
+    price = 19.99
     # 3. type:
+    price_text = "19.99"  # esto es texto, no un número
     # 4. list:
+    my_prices = [19.99, 5.50, 42.00]
     # 5. index:
-    # 6. loop:
-    # 7. condition:
+    first_price = my_prices[0]
+    # 6. loop:  y  7. condition:
+    for p in my_prices:
+        if p < 20:
+            print(p)
     # 8. f-string:
+    message = f"${price:.2f}"
     # 9. many into one number:
+    prices_sum = sum(my_prices)
     # 10. function and argument:
+    prices_desc = sorted(my_prices, reverse=True)
     # 11. error:
+    # my_prices[10]  -> IndexError (lo dejo como comentario para que la celda no se rompa)
+
+    print(message, prices_sum, prices_desc)
     return
 
 
@@ -146,6 +159,34 @@ def _(mo):
 def _():
     charges = [16.75, 22.25, 25.00, 20.25, 36.25]
     charges
+    return (charges,)
+
+
+@app.cell
+def _(charges):
+    charges[0]
+    return
+
+
+@app.cell
+def _(charges):
+    charges[-1]
+    return
+
+
+@app.cell
+def _(charges):
+    charges[5]
+    return
+
+
+@app.cell
+def _(charges):
+    total = 0
+    for charge in charges:
+        if charge < 25:
+            total = total + charge
+    total
     return
 
 
@@ -189,13 +230,13 @@ def _(mo):
     it, write under the letter, and press `Ctrl+Enter`. Code still goes in cells of your
     own, added with the **+** button.
 
-    **A ·**
+    **A ·** The first test that is true decides, because Python checks from top to bottom and stops at the first match.
 
-    **C ·**
+    **C ·** append always adds exactly one item, even if that item is a whole list; extend adds each item separately.
 
-    **D ·**
+    **D ·** sort() changes the list itself and returns nothing (None), while sorted() returns a new sorted list.
 
-    **E ·**
+    **E ·** When I want a change made through one name to show up in the other too, like a shared list that several parts of my code need to update together.
     """)
     return
 
@@ -224,12 +265,12 @@ def _(mo):
 
 @app.cell
 def _():
-    score = 95
-    if score >= 60:
-        print("Pass")
-    elif score >= 90:
+    score = 75
+    if score >= 90:
         print("A")
-    return (score,)
+    elif score >= 60:
+        print("Pass")
+    return
 
 
 @app.cell(hide_code=True)
@@ -259,6 +300,32 @@ def _():
     return (statuses,)
 
 
+@app.cell
+def _(statuses):
+    shipped_count = 0
+    for _status in statuses:
+        if _status == "shipped":
+            shipped_count = shipped_count + 1
+    shipped_count
+    return (shipped_count,)
+
+
+@app.cell
+def _(statuses):
+    not_shipped_count = 0
+    for _status in statuses:
+        if _status != "shipped":
+            not_shipped_count = not_shipped_count + 1
+    not_shipped_count
+    return
+
+
+@app.cell
+def _(shipped_count, statuses):
+    print(shipped_count / len(statuses) * 100)
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -283,9 +350,15 @@ def _(mo):
 @app.cell
 def _():
     order_lines = ["notebook", "pen"]
-    order_lines.append(["stapler", "tape"])
+    order_lines.extend(["stapler", "tape"])
     len(order_lines)
     return (order_lines,)
+
+
+@app.cell
+def _(order_lines):
+    print(order_lines[2])
+    return
 
 
 @app.cell(hide_code=True)
@@ -318,6 +391,12 @@ def _():
     return (tickers,)
 
 
+@app.cell
+def _(tickers):
+    print(sorted(tickers, reverse=True))
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -348,10 +427,25 @@ def _(mo):
 @app.cell
 def _():
     prices = [12.50, 8.00, 19.99]
-    sale_prices = prices
+    sale_prices = prices[:]
     sale_prices.append(4.99)
     prices
-    return (prices, sale_prices,)
+    return prices, sale_prices
+
+
+@app.cell
+def _(prices, sale_prices):
+    print(prices is sale_prices)
+    return
+
+
+@app.cell
+def _(sale_prices):
+    discounted = []
+    for _sp in sale_prices:
+        discounted.append(round(_sp * 0.9, 2))
+    discounted
+    return
 
 
 @app.cell(hide_code=True)
@@ -379,6 +473,32 @@ def _(mo):
 def _():
     print("100" + "50")
     print(100 + 50)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    "100" + "50" joined the two texts side by side into "10050", which makes sense for text because + on text means gluing words together, like "Laura" + "C" gives "LauraC".
+    """)
+    return
+
+
+@app.cell
+def _():
+    print(int("100") + int("50"))
+    return
+
+
+@app.cell
+def _():
+    int("100.5")
+    return
+
+
+@app.cell
+def _():
+    float("100.5")
     return
 
 
@@ -443,6 +563,24 @@ def _(mo):
 @app.cell
 def _(first_order):
     first_order["ShipCountry"]
+    return
+
+
+@app.cell
+def _(first_order):
+    first_order["Freight"]
+    return
+
+
+@app.cell
+def _(first_order):
+    first_order["freight"]
+    return
+
+
+@app.cell
+def _(first_order):
+    first_order[0]
     return
 
 
@@ -552,6 +690,35 @@ def _(mo):
     return
 
 
+@app.cell
+def _(orders):
+    total_freight = 0
+    for _order in orders:
+        total_freight = total_freight + _order["Freight"]
+    total_freight
+    return
+
+
+@app.cell
+def _(orders):
+    unshipped_count = 0
+    for _order in orders:
+        if _order["ShippedDate"] is None:
+            unshipped_count = unshipped_count + 1
+    unshipped_count
+    return
+
+
+@app.cell
+def _(orders):
+    biggest_order = orders[0]
+    for _order in orders:
+        if _order["Freight"] > biggest_order["Freight"]:
+            biggest_order = _order
+    print(biggest_order["OrderID"], biggest_order["Freight"])
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -572,10 +739,7 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    *One row is ...*
-
-    *(Replace this line with your own sentence. If this cell shows you code instead of
-    text, use the cell menu to turn it into a markdown cell.)*
+    One row is one order: a single purchase that one customer placed on one date, with where it was sent, when it shipped and what the shipping cost. That gives 30 rows, one per order, which matches len(orders).
     """)
     return
 
@@ -613,6 +777,66 @@ def _():
         {"Symbol": "TSLA", "Shares": 150, "Price": 255.70},
     ]
     portfolio
+    return (portfolio,)
+
+
+@app.cell
+def _(portfolio):
+    portfolio_total = 0
+    for _holding in portfolio:
+        portfolio_total = portfolio_total + _holding["Shares"] * _holding["Price"]
+    print(f"Total cost: ${portfolio_total:.2f}")
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    For each holding, multiply its Shares by its Price to get what that holding costs.
+    Start a running total at zero and add each holding's cost to it.
+    After going through all six holdings, the running total is the cost of the whole portfolio.
+    """)
+    return
+
+
+@app.cell
+def _():
+    book_orders = [
+        {"Title": "Python Basics", "Copies": 3, "Price": 24.99},
+        {"Title": "Data Science 101", "Copies": 1, "Price": 39.50},
+        {"Title": "Clean Code", "Copies": 2, "Price": 32.00},
+        {"Title": "The Pragmatic Programmer", "Copies": 5, "Price": 27.75},
+        {"Title": "Deep Learning", "Copies": 1, "Price": 54.20},
+    ]
+    book_orders
+    return (book_orders,)
+
+
+@app.cell
+def _(book_orders):
+    books_total = 0
+    for _book in book_orders:
+        books_total = books_total + _book["Copies"] * _book["Price"]
+    print(f"Total cost: ${books_total:.2f}")
+    return
+
+
+@app.cell
+def _(book_orders):
+    copies_total = 0
+    for _book in book_orders:
+        copies_total = copies_total + _book["Copies"]
+    copies_total
+    return
+
+
+@app.cell
+def _(book_orders):
+    biggest_book = book_orders[0]
+    for _book in book_orders:
+        if _book["Copies"] * _book["Price"] > biggest_book["Copies"] * biggest_book["Price"]:
+            biggest_book = _book
+    print(biggest_book["Title"], biggest_book["Copies"] * biggest_book["Price"])
     return
 
 
@@ -664,6 +888,11 @@ def _(mo):
         _where = f"could not write into {_data_dir.name}/: {_error}"
 
     _where
+    return
+
+
+@app.cell
+def _():
     return
 
 

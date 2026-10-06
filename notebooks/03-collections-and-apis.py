@@ -10,7 +10,7 @@
 
 import marimo
 
-__generated_with = "0.24.2"
+__generated_with = "0.25.1"
 app = marimo.App(width="medium", sql_output="polars")
 
 
@@ -159,7 +159,7 @@ def _(mo):
 
     **B ·** There is a tie: France, Germany, Brazil and USA each had 4 orders, the most of any country.
 
-    **C ·**
+    **C ·** 1. A list, because the lines can be added, removed and reordered. 2. A set, because each customer appears only once. 3. A dictionary, because you look up the units by product name. 4. A tuple, because the parts must not change once recorded.
 
     **D ·**
 

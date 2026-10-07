@@ -163,7 +163,7 @@ def _(mo):
 
     **D ·** I would rather work with the list of dictionaries, because each value has a name, like a column header, so it is clear which number is the shares and which is the price.
 
-    **G ·**
+    **G ·** The first result is Babson Park in Florida, not the one in Massachusetts, so code that always takes [0] would silently use the wrong place and give Florida's weather without any error.
     """)
     return
 
@@ -697,11 +697,30 @@ def _(mo):
     return
 
 
+@app.cell
+def _(babson_weather):
+    wind_speed = babson_weather["current"]["wind_speed_10m"]
+    wind_unit = babson_weather["current_units"]["wind_speed_10m"]
+    f"The wind at Babson is {wind_speed} {wind_unit}"
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
     **F · Another town.** Search for `Wellesley` the way the misspelled search did, with the correct spelling. Take the first place out of `results`, then its `latitude`, `longitude` and `admin1`. *Check yourself: latitude 42.29649, in Massachusetts.*
     """)
+    return
+
+
+@app.cell
+def _(requests):
+    wellesley_reply = requests.get(
+        "https://geocoding-api.open-meteo.com/v1/search?name=Wellesley&count=1",
+        timeout=10,
+    )
+    wellesley_place = wellesley_reply.json()["results"][0]
+    wellesley_place["latitude"], wellesley_place["longitude"], wellesley_place["admin1"]
     return
 
 
@@ -712,6 +731,17 @@ def _(mo):
 
     **Going further.** Use F's coordinates to ask for Wellesley's current temperature. Build the address with an f-string, so that changing the town changes the forecast.
     """)
+    return
+
+
+@app.cell
+def _(requests):
+    babson_park_reply = requests.get(
+        "https://geocoding-api.open-meteo.com/v1/search?name=Babson%20Park&count=1",
+        timeout=10,
+    )
+    babson_park_place = babson_park_reply.json()["results"][0]
+    babson_park_place["name"], babson_park_place["admin1"]
     return
 
 

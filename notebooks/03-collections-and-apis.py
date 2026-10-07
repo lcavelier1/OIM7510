@@ -161,7 +161,7 @@ def _(mo):
 
     **C ·** 1. A list, because the lines can be added, removed and reordered. 2. A set, because each customer appears only once. 3. A dictionary, because you look up the units by product name. 4. A tuple, because the parts must not change once recorded.
 
-    **D ·**
+    **D ·** I would rather work with the list of dictionaries, because each value has a name, like a column header, so it is clear which number is the shares and which is the price.
 
     **G ·**
     """)
@@ -494,6 +494,15 @@ def _():
         ("TSLA", 150, 255.70),
     ]
     holdings
+    return (holdings,)
+
+
+@app.cell
+def _(holdings):
+    portfolio_cost = 0
+    for _symbol, _shares, _price in holdings:
+        portfolio_cost = portfolio_cost + _shares * _price
+    f"${portfolio_cost:,.2f}"
     return
 
 

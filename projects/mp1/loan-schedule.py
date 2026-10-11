@@ -81,8 +81,9 @@ def _(mo):
 
 @app.cell
 def _():
-    # Your inputs.
-    return
+    loan_amount = 400000
+    annual_rates = {30: 0.0703, 15: 0.0642}
+    return annual_rates, loan_amount
 
 
 @app.cell(hide_code=True)
@@ -96,7 +97,11 @@ def _(mo):
 
 
 @app.cell
-def _():
+def _(annual_rates, loan_amount):
+    r = annual_rates[30] / 12
+    n = 30 * 12
+    payment = round(loan_amount * r / (1 - (1 + r) ** -n), 2)
+    print(payment)
     return
 
 

@@ -236,6 +236,14 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
+    The AI gave me \$326.07 for the principal and \$399,673.93 for the remaining balance in the first month. But my table showed \$325.94 and \$399,674.06. I checked the math myself (\$2,669.27 − \$2,343.33 = \$325.94), and my numbers were right. The difference was because the AI used an approximate monthly payment, so I didn't change my code. You can see this in the `schedule_30` cell in section 4 and in the commit "mp1: monthly schedule for both loans."
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
     ## 8. Going Further
 
     *Take at least one step past the main task, in any direction, and use your agent as much as you like. It does not have to work. State what you tried, what you found, and where it is in this notebook.*
@@ -275,6 +283,14 @@ def _(interest_15, interest_30, payoff_with_extra):
           f"saving {360 - months_30} months and ${interest_30 - extra_interest_30:,.2f} in interest.")
     print(f"15-year: paid off in {months_15} months instead of 180, "
           f"saving {180 - months_15} months and ${interest_15 - extra_interest_15:,.2f} in interest.")
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    I added an extra $200 to each monthly payment, and that money goes directly toward paying off the loan. I used a while loop to see how many months it would take to pay off each loan and how much interest I would save. Compared to the original loans, the 30-year loan was paid off 69 months earlier and saved $127,538.86 in interest, while the 15-year loan was paid off 15 months earlier and saved $21,939.64. This showed me that paying extra each month can make a big difference, especially for a 30-year loan.
+    """)
     return
 
 

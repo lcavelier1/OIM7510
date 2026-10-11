@@ -170,7 +170,7 @@ def _(schedule_15, schedule_30):
     print()
     print(f"The 15-year loan costs ${payment_15 - payment_30:,.2f} more each month, "
           f"but saves ${interest_30 - interest_15:,.2f} in interest over the life of the loan.")
-    return interest_15, interest_30
+    return interest_15, interest_30, payment_15, payment_30
 
 
 @app.cell(hide_code=True)
@@ -184,7 +184,18 @@ def _(mo):
 
 
 @app.cell
-def _():
+def _(interest_15, interest_30, loan_amount, payment_15, payment_30):
+    print(f"{'Loan':>8} {'Monthly payment':>16} {'Total interest':>16} {'Total paid':>16}")
+    print(f"{'30-year':>8} {payment_30:>16,.2f} {interest_30:>16,.2f} {loan_amount + interest_30:>16,.2f}")
+    print(f"{'15-year':>8} {payment_15:>16,.2f} {interest_15:>16,.2f} {loan_amount + interest_15:>16,.2f}")
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    If my friend can afford to pay \$797.59 more each month (\$3,466.86 instead of \$2,669.27), she should choose the 15-year loan, because she would pay \$624,035.34 in total instead of \$960,942.03, saving \$336,906.69 in interest.
+    """)
     return
 
 

@@ -170,7 +170,7 @@ def _(schedule_15, schedule_30):
     print()
     print(f"The 15-year loan costs ${payment_15 - payment_30:,.2f} more each month, "
           f"but saves ${interest_30 - interest_15:,.2f} in interest over the life of the loan.")
-    return
+    return interest_15, interest_30
 
 
 @app.cell(hide_code=True)
@@ -240,6 +240,41 @@ def _(mo):
 
     *Take at least one step past the main task, in any direction, and use your agent as much as you like. It does not have to work. State what you tried, what you found, and where it is in this notebook.*
     """)
+    return
+
+
+@app.cell
+def _(annual_rates, loan_amount):
+    def payoff_with_extra(term, extra):
+        r = annual_rates[term] / 12
+        n = term * 12
+        payment = round(loan_amount * r / (1 - (1 + r) ** -n), 2)
+        balance = loan_amount
+        months = 0
+        total = 0
+        while balance > 0:
+            months = months + 1
+            interest = round(balance * r, 2)
+            principal = round(payment + extra - interest, 2)
+            if principal > balance:
+                principal = balance
+            balance = round(balance - principal, 2)
+            total = total + interest
+        return months, round(total, 2)
+
+    return (payoff_with_extra,)
+
+
+@app.cell
+def _(interest_15, interest_30, payoff_with_extra):
+    extra_payment = 200
+    months_30, extra_interest_30 = payoff_with_extra(30, extra_payment)
+    months_15, extra_interest_15 = payoff_with_extra(15, extra_payment)
+
+    print(f"30-year: paid off in {months_30} months instead of 360, "
+          f"saving {360 - months_30} months and ${interest_30 - extra_interest_30:,.2f} in interest.")
+    print(f"15-year: paid off in {months_15} months instead of 180, "
+          f"saving {180 - months_15} months and ${interest_15 - extra_interest_15:,.2f} in interest.")
     return
 
 

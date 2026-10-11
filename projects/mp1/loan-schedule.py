@@ -105,6 +105,74 @@ def _(annual_rates, loan_amount):
     return
 
 
+@app.cell
+def _(annual_rates, loan_amount):
+    def make_schedule(term):
+        r = annual_rates[term] / 12
+        n = term * 12
+        payment = round(loan_amount * r / (1 - (1 + r) ** -n), 2)
+        balance = loan_amount
+        rows = []
+        for month in range(1, n + 1):
+            interest = round(balance * r, 2)
+            if month == n:
+                principal = balance
+                pay = round(principal + interest, 2)
+            else:
+                pay = payment
+                principal = round(payment - interest, 2)
+            balance = round(balance - principal, 2)
+            rows.append((month, pay, interest, principal, balance))
+        return rows
+
+    return (make_schedule,)
+
+
+@app.function
+def print_schedule(rows):
+    print(f"{'Month':>5} {'Payment':>10} {'Interest':>10} {'Principal':>10} {'Balance':>12}")
+    for month, pay, interest, principal, balance in rows:
+        print(f"{month:>5} {pay:>10,.2f} {interest:>10,.2f} {principal:>10,.2f} {balance:>12,.2f}")
+
+
+@app.cell
+def _(make_schedule):
+    schedule_30 = make_schedule(30)
+    print_schedule(schedule_30)
+    return (schedule_30,)
+
+
+@app.cell
+def _(make_schedule):
+    schedule_15 = make_schedule(15)
+    print_schedule(schedule_15)
+    return (schedule_15,)
+
+
+@app.function
+def total_interest(rows):
+    total = 0
+    for row in rows:
+        total = total + row[2]
+    return round(total, 2)
+
+
+@app.cell
+def _(schedule_15, schedule_30):
+    interest_30 = total_interest(schedule_30)
+    interest_15 = total_interest(schedule_15)
+    payment_30 = schedule_30[0][1]
+    payment_15 = schedule_15[0][1]
+
+    print(f"{'Loan':>8} {'Monthly payment':>16} {'Total interest':>16}")
+    print(f"{'30-year':>8} {payment_30:>16,.2f} {interest_30:>16,.2f}")
+    print(f"{'15-year':>8} {payment_15:>16,.2f} {interest_15:>16,.2f}")
+    print()
+    print(f"The 15-year loan costs ${payment_15 - payment_30:,.2f} more each month, "
+          f"but saves ${interest_30 - interest_15:,.2f} in interest over the life of the loan.")
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""

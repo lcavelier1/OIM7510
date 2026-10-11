@@ -199,7 +199,25 @@ def _(mo):
 
 
 @app.cell
-def _():
+def _(loan_amount, schedule_15, schedule_30):
+    def total_principal(rows):
+        total = 0
+        for row in rows:
+            total = total + row[3]
+        return round(total, 2)
+
+    principal_30 = total_principal(schedule_30)
+    principal_15 = total_principal(schedule_15)
+    print(f"30-year: principal paid = {principal_30:,.2f}, loan = {loan_amount:,.2f}, match: {principal_30 == loan_amount}")
+    print(f"15-year: principal paid = {principal_15:,.2f}, loan = {loan_amount:,.2f}, match: {principal_15 == loan_amount}")
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    I added up all the principal payments for both loans and compared them with the original $400,000 loan amount. Both totals matched $400,000, which shows that the calculations were correct and the loans were fully paid off. This is a way to check my results without just looking at the final balance.
+    """)
     return
 
 

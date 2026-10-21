@@ -10,7 +10,7 @@
 
 import marimo
 
-__generated_with = "0.24.2"
+__generated_with = "0.25.2"
 app = marimo.App(width="medium", sql_output="polars")
 
 
@@ -480,6 +480,18 @@ def _(mo):
     return
 
 
+@app.cell
+def _(requests):
+    boston_reply = requests.get(
+        "https://oim.zhili.dev/ma/towns",
+        params={"name": "Boston"},
+        timeout=10,
+    )
+    boston_town = boston_reply.json()["items"][0]
+    boston_town
+    return (boston_town,)
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
@@ -504,6 +516,26 @@ def _(mo):
 
     **Going further.** Post something more useful than one town's bill: choose a question somebody would ask, answer it from live data, and post the answer, in 140 characters or fewer.
     """)
+    return
+
+
+@app.cell
+def _(boston_town):
+    town_name = boston_town["name"]
+    town_bill = boston_town["average_single_family_bill_dollars"]
+    town_name, town_bill
+    return town_bill, town_name
+
+
+@app.cell
+def _(requests, town_bill, town_name):
+    board_reply = requests.post(
+        "https://oim.zhili.dev/message",
+        headers={"x-token": "lcavelier1"},
+        json={"message": f"{town_name}: ${town_bill:,}"},
+        timeout=10,
+    )
+    board_reply.status_code, board_reply.json()
     return
 
 

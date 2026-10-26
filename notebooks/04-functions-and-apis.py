@@ -396,6 +396,44 @@ def _(mo):
     return
 
 
+@app.cell
+def _(requests):
+    wellesley_reply = requests.get(
+        "https://oim.zhili.dev/ma/towns",
+        params={"name": "Wellesley"},
+        timeout=10,
+    )
+    wellesley_code = wellesley_reply.json()["items"][0]["dor_code"]
+    wellesley_code
+    return (wellesley_code,)
+
+
+@app.cell
+def _(requests, wellesley_code):
+    wellesley_history_reply = requests.get(
+        f"https://oim.zhili.dev/ma/towns/{wellesley_code}/history",
+        params={"fiscal_year": 2026},
+        timeout=10,
+    )
+    wellesley_history_reply.status_code, wellesley_history_reply.json()
+    return (wellesley_history_reply,)
+
+
+@app.cell
+def _(wellesley_history_reply):
+    wellesley_2026 = None
+    for _year in wellesley_history_reply.json()["years"]:
+        if _year["fiscal_year"] == 2026:
+            wellesley_2026 = _year
+
+    wellesley_value = wellesley_2026["average_single_family_value_dollars"]
+    wellesley_rate = wellesley_2026["residential_rate_per_thousand"]
+    checked_bill = wellesley_value * wellesley_rate / 1000
+
+    wellesley_value, wellesley_rate, round(checked_bill, 2), wellesley_2026["average_single_family_bill_dollars"]
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""

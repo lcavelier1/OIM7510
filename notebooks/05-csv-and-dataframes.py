@@ -12,7 +12,7 @@
 
 import marimo
 
-__generated_with = "0.24.2"
+__generated_with = "0.25.2"
 app = marimo.App(width="medium", sql_output="polars")
 
 
@@ -193,6 +193,25 @@ def _(towns_from_file):
             million_dollar_counts[county] += 1
 
     million_dollar_counts
+    return
+
+
+@app.cell
+def _(towns_from_file):
+    smallest_town = None
+    smallest_population = None
+    largest_town = None
+    largest_population = 0
+    for _town in towns_from_file:
+        _population = int(_town["population"])
+        if smallest_population is None or _population < smallest_population:
+            smallest_population = _population
+            smallest_town = _town["name"]
+        if _population > largest_population:
+            largest_population = _population
+            largest_town = _town["name"]
+
+    (smallest_town, smallest_population), (largest_town, largest_population)
     return
 
 

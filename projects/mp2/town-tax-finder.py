@@ -290,7 +290,7 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
-    The agent’s code worked the first time. I checked that the number of towns matched the API and that the tax bills matched my calculations. I also tested Wellesley separately and got the same numbers as in notebook 04.
+    The agent’s code worked the first time. In section 6, I checked that the number of towns matched the API and that the tax bills matched my calculations. I also tested Wellesley separately and got the same numbers as in notebook 04.
     """)
     return
 

@@ -245,6 +245,32 @@ def _(mo):
     return
 
 
+@app.cell
+def _(county, county_towns, requests, sorted_towns):
+    check_reply = requests.get(
+        "https://oim.zhili.dev/ma/towns",
+        params={"county": county, "per_page": 1},
+        timeout=10,
+    ).json()
+    api_total = check_reply["pagination"]["total"]
+    print(f"Towns I collected: {len(county_towns)}   Towns the API reports: {api_total}   Match: {len(county_towns) == api_total}")
+    print()
+    print(f"{'Town':<16}{'API bill':>10}{'Value x rate / 1000':>22}{'Difference':>12}")
+    for _record in sorted_towns:
+        _computed_bill = _record["average_value_dollars"] * _record["tax_rate"] / 1000
+        _difference = abs(_computed_bill - _record["average_bill_dollars"])
+        print(f"{_record['name']:<16}{_record['average_bill_dollars']:>10,}{_computed_bill:>22,.2f}{_difference:>12,.2f}")
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    I checked that I got all 54 towns by comparing my results with the API total. I also checked that the tax bills I calculated were almost the same as the API’s bills, with a difference of less than 50 cents.
+    """)
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""

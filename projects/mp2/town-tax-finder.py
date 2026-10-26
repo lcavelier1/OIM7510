@@ -306,6 +306,33 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
+    **get_towns(county)**
+
+    It takes a county name and returns all the towns in that county.
+
+    One line I found interesting was for page_number in range(2, pages + 1). It starts at page 2 because page 1 was already requested. Since Middlesex only has one page, the loop doesn’t run.
+
+    **get_year(dor_code, fiscal_year)**
+
+    It takes a town’s code and a fiscal year and returns its tax data for that year, or None if the year isn’t found.
+
+    One line I found interesting was return None at the end, because it only gets there if the function can’t find the year I asked for.
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    **Prediction:**
+    If I change tax_limit_dollars from 8000 to 6000, I expect 5 towns to pass: Malden, Waltham, Dracut, Lowell, and Everett. The cheapest will still be Malden.
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
     ## 9. Going Further
     """)
     return

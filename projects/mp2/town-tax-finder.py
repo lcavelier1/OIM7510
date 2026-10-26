@@ -79,11 +79,52 @@ def _(mo):
     return
 
 
+@app.cell
+def _():
+    county = "Middlesex"
+    budget_dollars = 700000
+    tax_limit_dollars = 8000
+    fiscal_year = 2026
+    return (county,)
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
     ## 4. The Work
     """)
+    return
+
+
+@app.cell
+def _():
+    import requests
+
+    return (requests,)
+
+
+@app.cell
+def _(county, requests):
+    def get_towns(county):
+        towns_url = "https://oim.zhili.dev/ma/towns"
+        first_page = requests.get(
+            towns_url,
+            params={"county": county, "per_page": 100, "page": 1},
+            timeout=10,
+        ).json()
+        towns = first_page["items"]
+        pages = first_page["pagination"]["pages"]
+        for page_number in range(2, pages + 1):
+            next_page = requests.get(
+                towns_url,
+                params={"county": county, "per_page": 100, "page": page_number},
+                timeout=10,
+            ).json()
+            towns = towns + next_page["items"]
+        return towns
+
+    county_towns = get_towns(county)
+    len(county_towns), county_towns[0]["name"]
     return
 
 

@@ -277,7 +277,7 @@ def _(mo):
 @app.cell
 def _(pl, town_table):
     (
-        town_table.filter(pl.col("average_single_family_value_dollars") >= 1_000_000)
+        town_table.filter(pl.col("average_single_family_value_dollars") >= 2_000_000)
         .group_by("county")
         .agg(pl.len().alias("towns"))
         .sort("towns", descending=True)
@@ -375,7 +375,7 @@ def _(mo, town_table):
         f"""
         SELECT county, COUNT(*) AS towns
         FROM town_table
-        WHERE average_single_family_value_dollars >= 1000000
+        WHERE average_single_family_value_dollars >= 2000000
         GROUP BY county
         ORDER BY towns DESC
         """
@@ -399,6 +399,14 @@ def _(mo):
     In the SQL cell, `1000000` is the bar a town's average home value has to reach. Before you change it to `2000000`, predict in a markdown cell under this question: which counties' counts can go down, and can any go up? Then make the same change in the polars cell that counts million-dollar towns, and run both. *Check yourself: both give Dukes, Middlesex and Norfolk 2 each and Nantucket 1, which is 7 towns.*
 
     **Going further.** Write a SQL query of your own on `town_table`, and check its answer in polars.
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    When the minimum goes from $1M to $2M, the counts can only decrease or stay the same. They can’t increase because towns with more than $2M were already included in the $1M count. Some counties might disappear from the list completely.
     """)
     return
 

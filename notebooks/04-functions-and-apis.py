@@ -611,6 +611,25 @@ def _(requests, town_bill, town_name):
     return
 
 
+@app.cell
+def _(requests, town_bill, town_name):
+    no_token_reply = requests.post(
+        "https://oim.zhili.dev/message",
+        json={"message": f"{town_name}: ${town_bill:,}"},
+        timeout=10,
+    )
+    no_token_reply.status_code, no_token_reply.json()
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    I received a 401 error because the x-token header was missing. The token identifies the sender, allowing the system to display the message under the correct student’s name and prevent unauthorized or anonymous submissions.
+    """)
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""

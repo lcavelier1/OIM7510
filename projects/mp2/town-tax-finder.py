@@ -179,7 +179,7 @@ def _(budget_dollars, tax_limit_dollars, town_records):
 
     sorted_towns = sorted(passing_towns, key=get_bill)
     len(sorted_towns), sorted_towns
-    return (sorted_towns,)
+    return passing_towns, sorted_towns
 
 
 @app.cell
@@ -346,10 +346,43 @@ def _(mo):
     return
 
 
+@app.cell
+def _(passing_towns, sorted_towns):
+    def get_rate(record):
+        return record["tax_rate"]
+
+    rate_sorted_towns = sorted(passing_towns, key=get_rate)
+
+    print(f"{'Rank by rate':<14}{'Town':<16}{'Tax rate':>10}{'Avg bill':>10}{'Rank by bill':>14}")
+    _rate_rank = 1
+    for _record in rate_sorted_towns:
+        _bill_rank = sorted_towns.index(_record) + 1
+        _bill_text = f"${_record['average_bill_dollars']:,}"
+        print(f"{_rate_rank:<14}{_record['name']:<16}{_record['tax_rate']:>10.2f}{_bill_text:>10}{_bill_rank:>14}")
+        _rate_rank = _rate_rank + 1
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    I sorted the same 12 towns by tax rate instead of tax bill, and the order changed a lot. Dracut has the lowest rate but the third lowest bill, while Ashby has the highest rate but the sixth lowest bill. This is because the bill also depends on the home value, not just the rate. So for the couple, the tax bill matters more than the rate.
+    """)
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
     ## 10. Time Spent
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    1.5
     """)
     return
 

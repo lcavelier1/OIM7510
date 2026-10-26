@@ -85,7 +85,7 @@ def _():
     budget_dollars = 700000
     tax_limit_dollars = 8000
     fiscal_year = 2026
-    return (county,)
+    return budget_dollars, county, fiscal_year, tax_limit_dollars
 
 
 @app.cell(hide_code=True)
@@ -125,6 +125,77 @@ def _(county, requests):
 
     county_towns = get_towns(county)
     len(county_towns), county_towns[0]["name"]
+    return (county_towns,)
+
+
+@app.cell
+def _(fiscal_year, requests):
+    def get_year(dor_code, fiscal_year):
+        history = requests.get(
+            f"https://oim.zhili.dev/ma/towns/{dor_code}/history",
+            timeout=10,
+        ).json()
+        for year in history["years"]:
+            if year["fiscal_year"] == fiscal_year:
+                return year
+        return None
+
+    get_year("317", fiscal_year)
+    return (get_year,)
+
+
+@app.cell
+def _(county_towns, fiscal_year, get_year):
+    town_records = []
+    for _town in county_towns:
+        _year = get_year(_town["dor_code"], fiscal_year)
+        if _year is not None:
+            town_records.append(
+                {
+                    "name": _town["name"],
+                    "dor_code": _town["dor_code"],
+                    "average_value_dollars": _year["average_single_family_value_dollars"],
+                    "tax_rate": _year["residential_rate_per_thousand"],
+                    "average_bill_dollars": _year["average_single_family_bill_dollars"],
+                }
+            )
+
+    len(town_records), town_records[0]
+    return (town_records,)
+
+
+@app.cell
+def _(budget_dollars, tax_limit_dollars, town_records):
+    passing_towns = []
+    for _record in town_records:
+        _value = _record["average_value_dollars"]
+        _bill = _record["average_bill_dollars"]
+        if _value is not None and _bill is not None:
+            if _value <= budget_dollars and _bill < tax_limit_dollars:
+                passing_towns.append(_record)
+
+    def get_bill(record):
+        return record["average_bill_dollars"]
+
+    sorted_towns = sorted(passing_towns, key=get_bill)
+    len(sorted_towns), sorted_towns
+    return
+
+
+@app.cell
+def _(county, fiscal_year, mo, town_records):
+    import csv
+
+    data_folder = mo.notebook_dir() / "data"
+    data_folder.mkdir(exist_ok=True)
+    records_csv = data_folder / f"{county.lower()}-{fiscal_year}.csv"
+
+    with open(records_csv, "w", newline="", encoding="utf-8") as _file:
+        _writer = csv.DictWriter(_file, fieldnames=list(town_records[0].keys()))
+        _writer.writeheader()
+        _writer.writerows(town_records)
+
+    records_csv.name
     return
 
 

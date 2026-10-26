@@ -464,6 +464,18 @@ def _(mo):
     return
 
 
+@app.cell
+def _(alt, mo, town_table):
+    income_bill_chart = mo.ui.altair_chart(
+        town_table.plot.point(
+            x=alt.X("income_per_capita_dollars", title="Income per person ($)"),
+            y=alt.Y("average_single_family_bill_dollars", title="Average single-family tax bill ($)"),
+        ).properties(title="Towns with higher income per person tend to pay higher tax bills")
+    )
+    income_bill_chart
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""

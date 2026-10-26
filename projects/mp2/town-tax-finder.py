@@ -333,6 +333,14 @@ def _(mo):
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""
+    **Result:** I changed tax_limit_dollars to 6000 and ran it. Exactly 5 towns passed, Malden, Waltham, Dracut, Lowell and Everett, and Malden was still the cheapest at $4,952. It matched my prediction.
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
     ## 9. Going Further
     """)
     return

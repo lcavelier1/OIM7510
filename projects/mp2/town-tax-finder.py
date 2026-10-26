@@ -179,7 +179,7 @@ def _(budget_dollars, tax_limit_dollars, town_records):
 
     sorted_towns = sorted(passing_towns, key=get_bill)
     len(sorted_towns), sorted_towns
-    return
+    return (sorted_towns,)
 
 
 @app.cell
@@ -204,6 +204,36 @@ def _(mo):
     mo.md(r"""
     ## 5. The Answer
     """)
+    return
+
+
+@app.cell
+def _(sorted_towns):
+    print(f"{'Town':<16}{'Avg home value':>16}{'Tax rate':>10}{'Avg bill':>10}")
+    for _record in sorted_towns:
+        _value_text = f"${_record['average_value_dollars']:,}"
+        _bill_text = f"${_record['average_bill_dollars']:,}"
+        print(f"{_record['name']:<16}{_value_text:>16}{_record['tax_rate']:>10.2f}{_bill_text:>10}")
+    return
+
+
+@app.cell
+def _(budget_dollars, county, fiscal_year, sorted_towns, tax_limit_dollars):
+    if sorted_towns:
+        cheapest_town = sorted_towns[0]
+        answer_sentence = (
+            f"In {county} County, {len(sorted_towns)} towns have an average single-family home "
+            f"of ${budget_dollars:,} or less and an average tax bill under ${tax_limit_dollars:,} "
+            f"in fiscal year {fiscal_year}. The lowest bill is in {cheapest_town['name']}, "
+            f"at ${cheapest_town['average_bill_dollars']:,} a year on an average home of "
+            f"${cheapest_town['average_value_dollars']:,}."
+        )
+    else:
+        answer_sentence = (
+            f"No town in {county} County has an average home of ${budget_dollars:,} or less "
+            f"and an average bill under ${tax_limit_dollars:,} in fiscal year {fiscal_year}."
+        )
+    print(answer_sentence)
     return
 
 

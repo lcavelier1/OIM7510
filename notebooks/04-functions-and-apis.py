@@ -515,6 +515,21 @@ def _(mo):
     return
 
 
+@app.cell
+def _(get_page):
+    def get_all_towns():
+        first_page = get_page(1)
+        all_towns = first_page["items"]
+        pages = first_page["pagination"]["pages"]
+        for page_number in range(2, pages + 1):
+            all_towns = all_towns + get_page(page_number)["items"]
+        return all_towns
+
+    every_town = get_all_towns()
+    len(every_town), every_town[0]["name"], every_town[-1]["name"]
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""

@@ -281,6 +281,42 @@ def _(mo):
     return
 
 
+@app.cell
+def _(database, duckdb):
+    try:
+        with duckdb.connect(database) as _con:
+            _con.execute("INSERT INTO towns VALUES ('Wellesley', 'Norfolk', 100, 0, 0)")
+        duplicate_name = "accepted"
+    except duckdb.ConstraintException as _error:
+        duplicate_name = str(_error).splitlines()[0]
+    duplicate_name
+    return
+
+
+@app.cell
+def _(database, duckdb):
+    try:
+        with duckdb.connect(database) as _con:
+            _con.execute("INSERT INTO towns VALUES ('Bogota', 'Norfolk', 0, 0, 0)")
+        zero_population = "accepted"
+    except duckdb.ConstraintException as _error:
+        zero_population = str(_error).splitlines()[0]
+    zero_population
+    return
+
+
+@app.cell
+def _(database, duckdb):
+    try:
+        with duckdb.connect(database) as _con:
+            _con.execute("INSERT INTO towns VALUES ('Chia', 'Cundinamarca', 100, 0, 0)")
+        fake_county = "accepted"
+    except duckdb.ConstraintException as _error:
+        fake_county = str(_error).splitlines()[0]
+    fake_county
+    return
+
+
 @app.cell(hide_code=True)
 def _(mo):
     mo.md(r"""

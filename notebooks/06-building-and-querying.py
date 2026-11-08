@@ -187,6 +187,7 @@ def _(database, duckdb):
     def ask(sql):
         with duckdb.connect(database, read_only=True) as _con:
             return _con.sql(sql).pl()
+        
 
     return (ask,)
 
@@ -221,6 +222,26 @@ def _(mo):
 
     **Going further.** Load every year for one county's towns from the API, and find the town whose bill grew the most over 10 years.
     """)
+    return
+
+
+@app.cell
+def _(database, duckdb):
+    with duckdb.connect(database) as _con:
+        _con.execute("""CREATE OR REPLACE TABLE town_bills(
+        town VARCHAR REFERENCES towns(name),
+        year INTEGER,
+        average_bill INTEGER,
+        PRIMARY KEY (town, year)
+        )""")
+        _con.execute("""INSERT INTO town_bills VALUES('Wellesley',2025,19792), ('Wellesley', 2026, 20551)
+        """)
+    return
+
+
+@app.cell
+def _(ask):
+    ask("SELECT * FROM town_bills")
     return
 
 

@@ -160,8 +160,10 @@ for p in patients:
     visits = random.randint(6, 18)
     day = FIRST_DAY + timedelta(days=random.randint(0, 380))
     for visit in range(visits):
-        while day.weekday() >= 5:  # move weekend days to Monday
-            day = day + timedelta(days=1)
+        # No weekends, and about half of the Fridays move too (fewer people book then):
+        # those visits go to a random Monday-Thursday of the next week.
+        if day.weekday() >= 5 or (day.weekday() == 4 and random.random() < 0.5):
+            day = day + timedelta(days=7 - day.weekday() + random.randint(0, 3))
         if day > LAST_BOOKING_DAY:
             break
         if visit == 0:
@@ -190,7 +192,7 @@ for p in patients:
                 "is_first_visit": visit == 0,
             })
             appointment_id = appointment_id + 1
-        day = day + timedelta(days=random.choice([3, 4, 7, 7]))
+        day = day + timedelta(days=random.randint(2, 8))
 
 # ---------- treatments given at each completed appointment ----------
 price_of = {t["treatment_id"]: t["price"] for t in treatments}

@@ -73,4 +73,10 @@ erDiagram
 
 ## Design Choices
 
-<!-- TODO Laura: fill in after the first commit -->
+**Keys.** I used a separate ID for each table (`patient_id`, `therapist_id`, etc.) instead of using names or insurance numbers. This makes more sense because two patients could have the same name and date of birth, and self-pay patients don't necessarily have an insurance number.
+
+**Optional relationships.** Not every patient has a referral, and not every treatment is necessarily used. For example, Dry Needling and Aquatic Therapy have no appointments associated with them. In the ERD, I used a circle to represent these optional relationships, meaning that there can be zero or more.
+
+**Rules the tables can't hold.** There are some rules that cannot be checked directly through the table structure. For example, the total treatment time during an appointment cannot be longer than the appointment itself. Also, a therapist cannot have two appointments that overlap, such as one appointment from 9:00 to 10:00 and another starting at 9:30. Since these rules involve comparing information across multiple rows, I used queries to check them instead. Question 7 in `questions.py` identifies the appointments where the treatment time exceeds the appointment length.
+
+**Something I changed from the agent.** The agent originally generated appointment data that was not very realistic, with too many appointments on Mondays and almost none on Wednesdays. I noticed this when looking at the chart in `build.py`, so I asked for the data to be adjusted to make the weekly distribution look more like a real clinic. The change is included in the commit "db: add build.py and fix make_data.py because the weekdays were wrong".

@@ -286,9 +286,34 @@ def _(mo):
     mo.md(r"""
     Exactly **2** completed appointments break the rule, **1004** (50 minutes of treatment in 30) and **1007** (45 in 30): the two I broke on purpose in Part A.
 
-    ## 8. My own question
+    ## 8. My own question: do insured patients bring in more money than self-pay patients?
 
-    <!-- TODO Laura: your question in plain words -->
+    Patients with an insurance member number count as insured; patients without one pay for themselves. Only completed appointments count as revenue.
+    """)
+    return
+
+
+@app.cell
+def _(ask):
+    q8 = ask("""
+        SELECT CASE WHEN p.insurance_member_number IS NULL THEN 'Self-pay' ELSE 'Insured' END AS payer,
+               COUNT(DISTINCT p.patient_id) AS patients,
+               COUNT(DISTINCT s.appointment_id) AS completed_appointments,
+               SUM(s.revenue) AS revenue,
+               ROUND(SUM(s.revenue) / COUNT(DISTINCT p.patient_id), 2) AS revenue_per_patient
+        FROM patients AS p
+        JOIN appointment_summary AS s ON s.patient_id = p.patient_id AND s.status = 'completed'
+        GROUP BY payer
+        ORDER BY revenue DESC
+    """)
+    q8
+    return (q8,)
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    Insured patients generate **$327,029**, which represents 81% of total revenue, compared to **$74,656** from self-pay patients. However, this is mainly because there are many more insured patients (217 vs. 50). When looking at the average revenue per patient, both groups are actually very similar: **$1,507** for insured patients and **$1,493** for self-pay patients.
     """)
     return
 
@@ -344,13 +369,48 @@ def _(mo):
     mo.md(r"""
     **Check 3: question 6** is checked right under it: its totals match the row counts of `referrals` (293) and `appointments` (3,236) from `build.py`.
 
+    **Check 4: question 8's two groups add up to question 4's total:** $327,029.25 + $74,656.25 = $401,685.50, the same revenue as all the treatments in question 4.
+
     ## Working With the Agent
 
-    <!-- TODO Laura -->
+    When I first looked at the appointments by day of the week chart in `build.py`, something seemed off. There were way too many appointments on Mondays (around 1,300) and very few on Tuesdays and Wednesdays. Thursdays were somewhere in between.
+
+    This didn't look realistic to me because, in a real clinic, appointments are usually spread throughout the weekdays, and Fridays tend to be less busy.
+
+    After looking into the data, I found that the agent's `make_data.py` was moving all weekend appointments to Monday and scheduling visits exactly 3, 4, or 7 days apart. I asked it to adjust the data so appointments would be more evenly distributed from Monday to Thursday, with about half of the Friday appointments moved to other days.
+
+    After making this change, the numbers looked much more realistic: Monday through Thursday now have around 700 to 800 appointments each, while Fridays have about 240.
+
+    The change is saved in the commit "db: add build.py and fix make_data.py because the weekdays were wrong".
 
     ## Reading It Back
 
     **My prediction (before running the joins):** joining `patients`, `referrals` and `appointments` without grouping will give about **4,200 rows**. It has to be more than the 3,236 appointments, because a patient with 2 or 3 referrals gets each of their appointments repeated once per referral, but most patients have 0 or 1 referral, so only some appointments repeat. The 12 referred patients with no appointments still add 1 row each, because a LEFT JOIN keeps every patient.
+
+    **Running the joins alone** (no grouping), after the prediction was committed as `db: prediction`:
+    """)
+    return
+
+
+@app.cell
+def _(ask):
+    ask("""
+        SELECT COUNT(*) AS joined_rows
+        FROM patients AS p
+        LEFT JOIN referrals AS r ON r.patient_id = p.patient_id
+        LEFT JOIN appointments AS a ON a.patient_id = p.patient_id
+    """)
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
+    The actual result was **4,146** rows.
+
+    My estimate was not exact, but it was pretty close, only 54 rows below what I expected. At first, I thought the result might be closer to 5,200, but after thinking about how many patients actually had multiple referrals, I decided that number was probably too high. I was happy to see how close my final estimate was.
+
+    **What one row means:** In question 6, each row represents one patient. For example, patient 1, Grace Nguyen, was referred to the clinic once and has 7 appointments in total, including completed appointments, no-shows, and booked appointments.
     """)
     return
 
@@ -360,15 +420,43 @@ def _(mo):
     mo.md(r"""
     ## Going Further
 
-    <!-- TODO Laura -->
+    I also added a chart showing the clinic's completed revenue by month at the end of `questions.py`, including titles for both axes.
 
+    One thing I noticed is that both Novembers show lower revenue because the data only covers half of each month. The date range goes from November 13, 2025, to November 13, 2026.
+
+    November 2025 has the lowest revenue because the clinic starts with no patients, so revenue gradually increases during December and January. This is a limitation of the generated data rather than something we would necessarily expect in a real clinic.
+
+    From February through May, revenue stays relatively stable at around $33,000 per month. It then increases in June and July, reaching approximately $45,000 and $49,000, before going back to around $33,000 to $35,000 per month.
+    """)
+    return
+
+
+@app.cell
+def _(alt, ask):
+    by_month = ask("""
+        SELECT strftime(date_trunc('month', starts_at), '%Y-%m') AS month,
+               SUM(revenue)::DOUBLE AS revenue
+        FROM appointment_summary
+        WHERE status = 'completed'
+        GROUP BY month
+        ORDER BY month
+    """)
+    alt.Chart(by_month).mark_line(point=True).encode(
+        x=alt.X("month:O", title="Month"),
+        y=alt.Y("revenue:Q", title="Revenue from completed appointments ($)"),
+    ).properties(title="Clinic revenue per month")
+    return
+
+
+@app.cell(hide_code=True)
+def _(mo):
+    mo.md(r"""
     ## Time Spent
 
-    <!-- TODO Laura -->
+    2 hours outside class.
     """)
     return
 
 
 if __name__ == "__main__":
     app.run()
-    

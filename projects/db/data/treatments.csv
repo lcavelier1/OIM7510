@@ -1,0 +1,11 @@
+treatment_id,name,standard_minutes,price,cost
+1,Initial Evaluation,45,180.0,60.0
+2,Therapeutic Exercise,15,55.0,15.0
+3,Manual Therapy,15,65.0,20.0
+4,Neuromuscular Re-education,15,60.0,18.0
+5,Gait Training,15,50.0,14.0
+6,Ultrasound,10,35.0,8.0
+7,Electrical Stimulation,15,40.0,10.0
+8,Kinesio Taping,10,30.0,12.0
+9,Dry Needling,20,90.0,25.0
+10,Aquatic Therapy,30,85.0,40.0
